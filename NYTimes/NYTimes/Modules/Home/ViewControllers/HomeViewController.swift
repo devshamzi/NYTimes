@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class HomeViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!{
@@ -17,8 +18,12 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    var vm = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        subscribe()
+        vm.populateHomeData()
         // Do any additional setup after loading the view.
     }
 
@@ -28,17 +33,36 @@ class HomeViewController: BaseViewController {
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.vm.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.reuseIdentifier, for: indexPath) as! HomeTableViewCell
-        cell.textLabel?.text = "Hello"
+        cell.textLabel?.text = self.vm.dataSource[indexPath.row].title ?? ""
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.goToDetail()
+    }
+}
+
+
+// MARK: - Bindable
+extension HomeViewController {
+    func subscribe() {
+        
+        vm.onChange.subscribe(onNext: {[weak self] (state) in
+            guard let self = self else {return}
+            switch state {
+            case .success:
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let message):
+              break
+            }
+        }).disposed(by: bag)
     }
 }

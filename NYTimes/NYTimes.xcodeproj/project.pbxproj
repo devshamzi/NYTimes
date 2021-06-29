@@ -33,6 +33,9 @@
 		1500F6B3268A6BE20043AE24 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1500F6B2268A6BE20043AE24 /* HomeService.swift */; };
 		1EB8B80B6C812D28F2912A5B /* Pods_NYTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5925E0B51680699984E0156B /* Pods_NYTimes.framework */; };
 		36F8FB1EDA60945500844738 /* Pods_NYTimes_NYTimesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86133234EC1ABAFF84CC58FE /* Pods_NYTimes_NYTimesUITests.framework */; };
+		75413E23268B328A004DB1E3 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75413E22268B328A004DB1E3 /* URLs.swift */; };
+		75413E25268B3775004DB1E3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75413E24268B3775004DB1E3 /* HomeViewModel.swift */; };
+		75413E27268B37BC004DB1E3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75413E26268B37BC004DB1E3 /* BaseViewModel.swift */; };
 		9164CA0DA0762212944BCF91 /* Pods_NYTimesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4525A07C115058FC7F03FD87 /* Pods_NYTimesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +90,9 @@
 		1500F6B2268A6BE20043AE24 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		4525A07C115058FC7F03FD87 /* Pods_NYTimesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTimesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5925E0B51680699984E0156B /* Pods_NYTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75413E22268B328A004DB1E3 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		75413E24268B3775004DB1E3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = NYTimes/Core/Base/HomeViewModel.swift; sourceTree = SOURCE_ROOT; };
+		75413E26268B37BC004DB1E3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		86133234EC1ABAFF84CC58FE /* Pods_NYTimes_NYTimesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTimes_NYTimesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E10DBCD00774FBBAE071813 /* Pods-NYTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimes.debug.xcconfig"; path = "Target Support Files/Pods-NYTimes/Pods-NYTimes.debug.xcconfig"; sourceTree = "<group>"; };
 		963D481E4987831C2F531F7E /* Pods-NYTimes-NYTimesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimes-NYTimesUITests.release.xcconfig"; path = "Target Support Files/Pods-NYTimes-NYTimesUITests/Pods-NYTimes-NYTimesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 		1500F680268A54A30043AE24 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				75413E24268B3775004DB1E3 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -319,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				1500F69F268A5EE40043AE24 /* BaseViewController.swift */,
+				75413E26268B37BC004DB1E3 /* BaseViewModel.swift */,
 			);
 			path = BaseUtil;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 			children = (
 				1500F6A8268A67AF0043AE24 /* Wrapable.swift */,
 				1500F6AA268A68E40043AE24 /* Response.swift */,
+				75413E22268B328A004DB1E3 /* URLs.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -642,6 +651,7 @@
 				1500F6A0268A5EE50043AE24 /* BaseViewController.swift in Sources */,
 				1500F69D268A5A860043AE24 /* UIStoryboard.swift in Sources */,
 				1500F6A9268A67AF0043AE24 /* Wrapable.swift in Sources */,
+				75413E25268B3775004DB1E3 /* HomeViewModel.swift in Sources */,
 				1500F68E268A576F0043AE24 /* CustomTableViewCell.swift in Sources */,
 				1500F69B268A5A550043AE24 /* StoryboardName.swift in Sources */,
 				1500F6AF268A69B10043AE24 /* HomeData.swift in Sources */,
@@ -655,7 +665,9 @@
 				1500F696268A58B50043AE24 /* UITableView.swift in Sources */,
 				1500F690268A57AC0043AE24 /* ReusableView.swift in Sources */,
 				1500F693268A57FC0043AE24 /* HomeTableViewCell.swift in Sources */,
+				75413E27268B37BC004DB1E3 /* BaseViewModel.swift in Sources */,
 				1500F64A268A53960043AE24 /* AppDelegate.swift in Sources */,
+				75413E23268B328A004DB1E3 /* URLs.swift in Sources */,
 				1500F6A6268A610B0043AE24 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

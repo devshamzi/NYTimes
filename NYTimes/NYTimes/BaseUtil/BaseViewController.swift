@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class BaseViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
+    var bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()

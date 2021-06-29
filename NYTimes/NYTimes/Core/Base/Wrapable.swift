@@ -23,6 +23,7 @@ extension Wrapable {
         
         AF.request(url, method: method, parameters: param == nil ? nil: param! as Parameters , encoding: encoding, headers: headers).responseData{  response in
             
+            var url = url
             print("--------------------------")
             debugPrint(response)
             print("--------------------------")
@@ -32,7 +33,7 @@ extension Wrapable {
             
             
             switch statusCode{
-            
+                
             case 200:
                 do {
                     guard let data = resData else{return}

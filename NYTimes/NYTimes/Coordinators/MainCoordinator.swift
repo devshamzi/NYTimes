@@ -18,12 +18,12 @@ class MainCoordinator: Coordinator {
     func goTohome() {
         let homeVC = HomeViewController.instantiate(with: .Home)
         homeVC.coordinator = self
-        navigationController.pushViewController(homeVC, animated: false)
+        navigationController.pushViewController(homeVC, animated: true)
     }
     
     func goToDetail() {
         let detailVC = DetailViewController.instantiate(with: .Home)
         detailVC.coordinator = self
-        navigationController.pushViewController(detailVC, animated: false)
+        navigationController.pushViewController(detailVC, animated: true)
     }
 }
