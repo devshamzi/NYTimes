@@ -12,6 +12,7 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
+        navigationController.navigationBar.isHidden = true
         self.navigationController = navigationController
     }
 

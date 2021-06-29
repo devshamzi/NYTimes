@@ -9,5 +9,6 @@ import UIKit
 
 class HomeTableViewCell: CustomTableViewCell , ReusableView{
 
+    @IBOutlet weak var titleLabel: UILabel!
     
 }

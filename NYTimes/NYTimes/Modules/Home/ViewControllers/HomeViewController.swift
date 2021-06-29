@@ -15,6 +15,8 @@ class HomeViewController: BaseViewController {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(HomeTableViewCell.self)
+            tableView.estimatedRowHeight = 100
+            tableView.rowHeight = UITableView.automaticDimension
         }
     }
     
@@ -38,7 +40,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.reuseIdentifier, for: indexPath) as! HomeTableViewCell
-        cell.textLabel?.text = self.vm.dataSource[indexPath.row].title ?? ""
+        cell.titleLabel?.text = self.vm.dataSource[indexPath.row].title ?? ""
         return cell
     }
     
