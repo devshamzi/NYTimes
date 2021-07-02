@@ -31,6 +31,7 @@
 		1500F6AB268A68E40043AE24 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1500F6AA268A68E40043AE24 /* Response.swift */; };
 		1500F6AF268A69B10043AE24 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1500F6AE268A69B10043AE24 /* HomeData.swift */; };
 		1500F6B3268A6BE20043AE24 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1500F6B2268A6BE20043AE24 /* HomeService.swift */; };
+		1578D820268F8669003A5B5F /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1578D81F268F8669003A5B5F /* Connectivity.swift */; };
 		1EB8B80B6C812D28F2912A5B /* Pods_NYTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5925E0B51680699984E0156B /* Pods_NYTimes.framework */; };
 		36F8FB1EDA60945500844738 /* Pods_NYTimes_NYTimesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86133234EC1ABAFF84CC58FE /* Pods_NYTimes_NYTimesUITests.framework */; };
 		75413E23268B328A004DB1E3 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75413E22268B328A004DB1E3 /* URLs.swift */; };
@@ -88,6 +89,7 @@
 		1500F6AA268A68E40043AE24 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		1500F6AE268A69B10043AE24 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		1500F6B2268A6BE20043AE24 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		1578D81F268F8669003A5B5F /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		4525A07C115058FC7F03FD87 /* Pods_NYTimesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTimesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5925E0B51680699984E0156B /* Pods_NYTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NYTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75413E22268B328A004DB1E3 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				1500F6A8268A67AF0043AE24 /* Wrapable.swift */,
 				1500F6AA268A68E40043AE24 /* Response.swift */,
 				75413E22268B328A004DB1E3 /* URLs.swift */,
+				1578D81F268F8669003A5B5F /* Connectivity.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				1500F690268A57AC0043AE24 /* ReusableView.swift in Sources */,
 				1500F693268A57FC0043AE24 /* HomeTableViewCell.swift in Sources */,
 				75413E27268B37BC004DB1E3 /* BaseViewModel.swift in Sources */,
+				1578D820268F8669003A5B5F /* Connectivity.swift in Sources */,
 				1500F64A268A53960043AE24 /* AppDelegate.swift in Sources */,
 				75413E23268B328A004DB1E3 /* URLs.swift in Sources */,
 				1500F6A6268A610B0043AE24 /* DetailViewController.swift in Sources */,

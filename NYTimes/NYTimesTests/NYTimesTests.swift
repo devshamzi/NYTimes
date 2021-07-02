@@ -34,32 +34,39 @@ class NYTimesTests: XCTestCase {
         }
     }
     
+    
     func testApiCallCompletes() throws {
         // given
         let urlString = BaseURL.ApiBaseUrl.url
         let url = URL(string: urlString)!
-        let promise = expectation(description: "Completion handler invoked")
         var statusCode: Int?
         var responseError: Error?
         
         // when
         var headers: HTTPHeaders?
-        
-        AF.request(url, method: .get, parameters:  nil , encoding: JSONEncoding.default, headers: headers).responseData{  response in
-            responseError =  response.error
+        if NetworkReachabilityManager()?.isReachable ?? false{
+            let promise = expectation(description: "Completion handler invoked")
             
-            statusCode = response.response?.statusCode ?? 0
-            if statusCode == 200{
-                promise.fulfill()
-            }else{
-                XCTFail("Status code: \(statusCode ?? 0)")
+            AF.request(url, method: .get, parameters:  nil , encoding: JSONEncoding.default, headers: headers).responseData{  response in
+                responseError =  response.error
+                
+                statusCode = response.response?.statusCode ?? 0
+                if statusCode == 200{
+                    promise.fulfill()
+                }else{
+                    XCTFail("Status code: \(statusCode ?? 0)")
+                }
             }
+            wait(for: [promise], timeout: 5)
+            
+            // then
+            XCTAssertNil(responseError)
+            XCTAssertEqual(statusCode, 200)
+        }else{
+            XCTFail("No Internet connection!")
         }
-        wait(for: [promise], timeout: 5)
+ 
         
-        // then
-        XCTAssertNil(responseError)
-        XCTAssertEqual(statusCode, 200)
     }
 
 }
