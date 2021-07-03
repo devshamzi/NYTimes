@@ -34,6 +34,13 @@ class NYTimesTests: XCTestCase {
         }
     }
     
+    func checkInternetConnection() throws{
+        try XCTSkipUnless(
+            NetworkReachabilityManager()?.isReachable ?? false,
+            "Internet connection required")
+        
+    }
+    
     
     func testApiCallCompletes() throws {
         // given
@@ -44,29 +51,26 @@ class NYTimesTests: XCTestCase {
         
         // when
         var headers: HTTPHeaders?
-        if NetworkReachabilityManager()?.isReachable ?? false{
-            let promise = expectation(description: "Completion handler invoked")
-            
-            AF.request(url, method: .get, parameters:  nil , encoding: JSONEncoding.default, headers: headers).responseData{  response in
-                responseError =  response.error
-                
-                statusCode = response.response?.statusCode ?? 0
-                if statusCode == 200{
-                    promise.fulfill()
-                }else{
-                    XCTFail("Status code: \(statusCode ?? 0)")
-                }
-            }
-            wait(for: [promise], timeout: 5)
-            
-            // then
-            XCTAssertNil(responseError)
-            XCTAssertEqual(statusCode, 200)
-        }else{
-            XCTFail("No Internet connection!")
-        }
- 
         
+        try checkInternetConnection()
+        
+        let promise = expectation(description: "Completion handler invoked")
+        
+        AF.request(url, method: .get, parameters:  nil , encoding: JSONEncoding.default, headers: headers).responseData{  response in
+            responseError =  response.error
+            
+            statusCode = response.response?.statusCode ?? 0
+            if statusCode == 200{
+                promise.fulfill()
+            }else{
+                XCTFail("Status code: \(statusCode ?? 0)")
+            }
+        }
+        wait(for: [promise], timeout: 5)
+        
+        // then
+        XCTAssertNil(responseError)
+        XCTAssertEqual(statusCode, 200)
     }
 
 }

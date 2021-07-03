@@ -29,8 +29,8 @@ final class HomeViewModel: BaseViewModel {
                         self.onChange.onNext(.success)
                     }
                 case .failure(let error):
-                    guard let e = error as? Error else { return }
-                    self.onChange.onNext(.failure(message: "error"))
+                    
+                    self.onChange.onNext(.failure(message: error.localizedDescription))
                 }
             })
             .disposed(by: bag)

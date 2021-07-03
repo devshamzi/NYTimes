@@ -19,41 +19,45 @@ extension Wrapable {
         
         let observer = PublishSubject<AFResult<T>>()
         
-        var headers: HTTPHeaders?
-        
-        AF.request(url, method: method, parameters: param == nil ? nil: param! as Parameters , encoding: encoding, headers: headers).responseData{  response in
+        if Connectivity.isConnectedToInternet{
+ 
+            var headers: HTTPHeaders?
             
-            var url = url
-            print("--------------------------")
-            debugPrint(response)
-            print("--------------------------")
-            
-            let resData = response.data
-            let statusCode = response.response?.statusCode ?? 0
-            
-            
-            switch statusCode{
+            AF.request(url, method: method, parameters: param == nil ? nil: param! as Parameters , encoding: encoding, headers: headers).responseData{  response in
                 
-            case 200:
-                do {
-                    guard let data = resData else{return}
-                    let value = try JSONDecoder().decode(T.self, from: data)
-                    observer.onNext(AFResult.success(value))
-                } catch {
-                    print(error.localizedDescription)
-                    observer.onNext(AFResult.failure("Failed Serialize" as! Error))
+                print("--------------------------")
+                debugPrint(response)
+                print("--------------------------")
+                
+                let resData = response.data
+                let statusCode = response.response?.statusCode ?? 0
+                
+                
+                switch statusCode{
+                
+                case 200:
+                    do {
+                        guard let data = resData else{return}
+                        let value = try JSONDecoder().decode(T.self, from: data)
+                        observer.onNext(AFResult.success(value))
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onNext(AFResult.failure(CustomError.failure(message: "Failed Serialize") as Error))
+                    }
+                    break
+                    
+                default:
+                    break
                 }
-                break
                 
-            default:
-                break
+                observer.onCompleted()
+                
             }
-            
-            observer.onCompleted()
-            
+            return observer
+        }else{
+            observer.onNext(AFResult.failure(CustomError.failure(message: "No internet connection") as Error))
+            return observer
         }
-        return observer
-        
     }
     
 }

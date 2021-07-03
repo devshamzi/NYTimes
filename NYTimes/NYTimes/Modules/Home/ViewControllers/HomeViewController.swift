@@ -63,6 +63,7 @@ extension HomeViewController {
                     self.tableView.reloadData()
                 }
             case .failure(let message):
+                print(message)
               break
             }
         }).disposed(by: bag)
